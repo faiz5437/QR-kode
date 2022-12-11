@@ -16,8 +16,12 @@ import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.qrcodenew.API.RetroServer;
 import com.journeyapps.barcodescanner.ScanContract;
 import com.journeyapps.barcodescanner.ScanOptions;
+
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
     private AppCompatButton btnScan;
@@ -57,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
         if (result.getContents() != null){
             TextView tvHasil = findViewById(R.id.tvhasi2);
             tvHasil.setText(result.getContents());
+
             Intent it = new Intent(getApplicationContext(), ResultActivity.class);
             it.putExtra("result", result.getContents());
             startActivity(it);
